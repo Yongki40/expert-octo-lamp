@@ -1,10 +1,10 @@
 let mysql = require("mysql");
 require('dotaenv').config();
 let pool = mysql.createPool({
-    host: process.env.host,
-    user: process.env.user,
-    password: process.env.password,
-    database: process.env.database
+    host: process.env.DB_HOST,
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE
 });
 
 const executeQuery = async (query) => {
