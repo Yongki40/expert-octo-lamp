@@ -53,14 +53,15 @@ app.post('/api/users',async (req, res) => {
     let formatTanggal = tanggal_lahir.toString().replace('-','/').replace('-','/').replace('-','/');
 
     await db.executeQueryWithParam(query,[email,nama_user,tanggal,0,0,api_key]);
-    return res.status(201).send({
-        email,
-        nama_user,
-        tanggal_lahir: formatTanggal,
-        saldo: 0,
-        api_hit:0,
-        api_key
-    })
+    return res.render('Home');
+    // return res.status(201).send({
+    //     email,
+    //     nama_user,
+    //     tanggal_lahir: formatTanggal,
+    //     saldo: 0,
+    //     api_hit:0,
+    //     api_key
+    // })
 });
 
 app.post('/api/users/topup',async (req, res) => {
