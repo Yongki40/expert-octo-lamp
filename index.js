@@ -234,5 +234,10 @@ app.get('/api/informations/:kode_info',async (req, res) => {
 
 });
 
+const port = process.env.PORT || 3000;
+//kalau heroku jalankan env.PORT, kalau localhost pake 3000
 
-app.listen(3000,() => console.log('listening on port 3000'));
+app.listen(port, function () {
+    console.log(`listening on port ${port}`);
+})
+app.listen(port,() => console.log('listening on port 3000'));
