@@ -1,9 +1,10 @@
 const express = require("express");
 const mysql = require("mysql");
 const app = express();
-
+const ejs = require("ejs");
 const db = require("./Database");
 app.use(express.urlencoded({extended:true}));
+app.set('view engine','ejs');
 
 const genAPIKey = (length) => {
     const alphabets= 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ'.split('');
@@ -25,6 +26,9 @@ const genAPIKey = (length) => {
     return key;
 };
 
+app.get('/',async (req, res) => {
+    res.render('Home');
+})
 app.post('/api/users',async (req, res) => {
     let {email,nama_user,tanggal_lahir} = req.body;
     let query = `SELECT * FROM users WHERE email = '${email}'`;
