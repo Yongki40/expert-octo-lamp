@@ -28,6 +28,11 @@ const genAPIKey = (length) => {
 
 app.get('/',async (req, res) => {
     res.render('Home');
+    
+})
+
+app.get('/users',async (req, res) => {
+    res.render('Home');
 })
 app.post('/api/users',async (req, res) => {
     console.log('log 1');
