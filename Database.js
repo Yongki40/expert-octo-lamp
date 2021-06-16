@@ -1,10 +1,10 @@
 let mysql = require("mysql");
 require('dotenv').config();
 let pool = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE
+    host: process.env.HOST,
+    user: process.env.USERNAME,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE
 });
 
 const executeQuery = async (query) => {
