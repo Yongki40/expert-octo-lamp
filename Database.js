@@ -1,5 +1,5 @@
 let mysql = require("mysql");
-require('dotaenv').config();
+require('dotenv').config();
 let pool = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USERNAME,
