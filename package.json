@@ -8,5 +8,20 @@
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1"
-  }
+  },
+  "name": "expert-octo-lamp",
+  "description": "belajar uas soa",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yongki40/expert-octo-lamp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yongki40/expert-octo-lamp/issues"
+  },
+  "homepage": "https://github.com/Yongki40/expert-octo-lamp#readme"
 }
