@@ -32,7 +32,11 @@ app.get('/',async (req, res) => {
 })
 
 app.get('/users',async (req, res) => {
-    res.render('Home');
+    let query = `SELECT * FROM users`;
+    let users = await db.executeQuery(query);
+    res.render('Users',{
+        users:users
+    });
 })
 app.post('/api/users',async (req, res) => {
     console.log('log 1');
