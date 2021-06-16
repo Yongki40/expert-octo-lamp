@@ -30,21 +30,24 @@ app.get('/',async (req, res) => {
     res.render('Home');
 })
 app.post('/api/users',async (req, res) => {
+    console.log('log 1');
     let {email,nama_user,tanggal_lahir} = req.body;
     let query = `SELECT * FROM users WHERE email = '${email}'`;
     let user = await db.executeQuery(query);
+    console.log('log 2');
     if(user.length != 0) {
         return res.status(401).send({
             error: 'sudah ada user dengan email tersebut'
         })
     }
-
+    console.log('log 3');
     let umur = 2021 - parseInt(tanggal_lahir.split('-')[2]);
     if(umur < 13){
         return res.status(401).send({
             error: 'umur tidak mencukupi'
         })
     }
+    console.log('log 4');
     let api_key = genAPIKey(15);
     query = `INSERT INTO users VALUES(?,?,?,?,?,?)`;
     let tanggal = tanggal_lahir.toString().split('-')[2] + '-' + tanggal_lahir.toString().split('-')[1] + '-'
@@ -53,6 +56,7 @@ app.post('/api/users',async (req, res) => {
     let formatTanggal = tanggal_lahir.toString().replace('-','/').replace('-','/').replace('-','/');
 
     await db.executeQueryWithParam(query,[email,nama_user,tanggal,0,0,api_key]);
+    console.log('log 5');
     return res.render('Home');
     // return res.status(201).send({
     //     email,
